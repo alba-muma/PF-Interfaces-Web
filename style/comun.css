@@ -1,0 +1,399 @@
+/* ---------------------------------------------------------- 
+ ------------------------- Globales ------------------------- 
+ ------------------------------------------------------------ */
+
+ * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Quantico', sans-serif;
+    color: var(--colorLetra1)
+}
+
+:root {
+    /* Colores */
+    --fondoNavbar: #0A0E1D;
+    --colorLetra1: #f4faff; 
+    --principal: #0A0E1D;
+    --secundario: #30B571;
+    
+    
+    /* Variables */
+    --navBarSizeShadow: 10px;
+
+    /* Variables pc */
+    --navBarSize: 4.5rem;
+    --mainSize: calc(100% - var(--varBarSizeTotal));
+    --navBarCheckPc: 20%;
+    --navBarCheckPcTotal: calc(var(--navBarCheckPc) + var(--navBarSizeShadow));
+    --mainSizeCheck: calc(100% - var(--navBarCheckPcTotal));
+    --varBarSizeTotal: calc(var(--navBarSize) + var(--navBarSizeShadow));
+
+    /* Variables tablet */
+    --navBarSizeTb: 4.5rem;
+    --mainSize: calc(100% - var(--varBarSizeTotalTb));
+    --navBarCheckTb: 35%;
+    --navBarCheckTbTotal: calc(var(--navBarCheckTb) + var(--navBarSizeShadow));
+    --mainSizeCheckTb: calc(100% - var(--navBarCheckTbTotal));
+    --varBarSizeTotalTb: calc(var(--navBarSizeTb) + var(--navBarSizeShadow));
+
+    --tamIcono: 2.5rem;
+    --fuente-titulos: 3.8rem;
+
+}
+
+/*Color de fondo*/
+body {
+    background: url("../images/Estrellas.png") , linear-gradient(180deg, #0E202B 0%, rgba(14, 32, 43, 0.96875) 45.83%, #2EAF6D 100%);
+    background-attachment: fixed;
+}
+
+/* Comunes para enlaces y parrafos */
+a,
+p,
+label,
+button{
+    font-family: 'Keania One';
+
+}
+
+/* Color titulos */
+h1 , h2 , h3 , h4 {
+    color: var(--colorLetra1);
+    font-family: 'Keania One';
+}
+
+/* Quitar el formato de listas */
+li , ul , ol {
+    list-style: none;
+}
+
+/* Quitar el subrayado de los enlaces y los inputs */
+a {
+    text-decoration: none;
+}
+input {
+    border: none;
+}
+
+/*********************** Botones ******************* */
+
+button , .boton {
+    background-color: var(--secundario);
+    color: var(--principal);
+    font-weight: 900;
+    text-decoration: none;
+    text-align: center;
+    border: none;
+    font-weight: 400;
+    border-radius: .5rem;
+    padding: 0rem 1rem;
+    
+}
+.boton_cerrar{
+    width:4rem;
+    height:2.5rem;
+}
+
+.dato {
+    box-sizing: border-box;
+    width: 100%;
+    height: 3rem;
+    background: rgba(0, 0, 0, 0.3);
+    border: 3px solid VAR(--secundario);
+
+    line-height: 43px;
+    font-family: 'Keania One';
+    padding-left: 1rem;
+}
+
+.dato::placeholder {
+    color: #FFFFFF;
+}
+
+
+/*********************** Ventanas emergentes ******************* */
+.ventana{
+    /* Centramos la ventana */
+    display:grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr;
+    transition: left 500ms;
+    
+    position: fixed;
+    top: 50%;
+    left: 52.5%;
+    transform: translate( -50% ,  -50%);
+    padding-top:0.5rem;
+
+    /* Decoracion de la ventana*/
+    background-color: var(--secundario);
+    border-radius: 5%;
+    box-shadow: 0 10px 0 var(--principal);
+   
+    /* Tamaño ventana */
+    width: 30rem;
+    height: 15rem;
+    z-index: 5;
+    padding-bottom:0.5rem;
+}
+#mensaje_error{
+    height:11rem;
+}
+
+.ventana h1,
+.ventana h3,
+.ventana p {
+    font-size: 22px;
+    color: var(--principal);
+    font-weight: 900;
+    text-align: center;
+    padding: 1rem;
+
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row: 1;
+}
+
+.navbar__input:checked + .contenedorGlobal .ventana{
+    left: 60.5%;
+    transition: left 500ms;
+}
+
+
+.ventana label {
+    /* Colocacion del parrafo con grid */
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row: 1;
+}
+
+/* Botones de SI o NO */
+.ventana button {
+    background-color: var(--principal);
+
+    margin: 1rem;
+    margin-top:0.7rem;
+    font-size: 1.5rem;
+    color: var(--colorLetra1);
+    margin:auto;
+}
+
+/* ------- Ventana de cerrar sesion ------- */
+.ventana_cerrar_sesion {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    z-index:99;
+
+}
+#buscador_users{
+    margin:0 auto;
+}
+
+
+@media (max-width: 768px) {
+    .ventana_cerrar_sesion {
+        margin-left: 3rem;
+        width: 25rem;
+        height: 10rem;
+    }
+    #search_users{
+        margin-left:0;
+    }
+    .navbar__input:checked + .contenedorGlobal .ventana{
+        left: 68%;
+    }
+    .ventana{
+        left:55%
+    }
+}
+
+
+/* -------------------------------------------- */
+/* -------------- Reproductor ----------------- */
+
+.reproductor {
+    height: 4rem;
+    position: fixed;
+    bottom: 2rem;
+    left: auto;
+    box-shadow: 0 5rem 0 var(--secundario);
+    background-color: var(--secundario);
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+@media (max-width: 600px) {
+    .reproductor {
+        bottom: 3rem;
+    }    
+}
+
+/****************** Reproductor de música **************************/
+.reproductor #reproductor__imagen {
+    border-radius: 15%;
+    margin-right: 1rem;
+}
+
+.reproductor_audio {
+    position: relative;
+    top: 0;
+    height: 3rem;
+}
+
+/* ------------------ Lyrics -------------------- */
+.lyrics{
+    position: fixed;
+    overflow-y: scroll;
+    width: 20rem;
+    height: 20rem;
+    bottom: 6rem;
+    right: 0;
+    background-color: var(--principal);
+    border-top-left-radius: 5%;
+}
+
+.lyrics p{
+    padding: 2rem;
+    text-align: center;
+}
+
+ /* ----------------- Audio --------------------- */
+audio{
+    display: hidden;
+    position: relative;
+    width: 40rem;
+    height: 15rem;
+    top: -11.9rem;
+    right: 0.2rem;
+}
+
+/* Si no se usa no se ve bien el botón de audio en firefox */
+@-moz-document url-prefix() {
+    audio {
+        top: -12.3rem;
+        right: 0.2rem;
+    }
+}
+
+audio::-webkit-media-controls-panel {
+    background-color: var(--secundario);
+}
+
+/************************************************************/
+/* **************************** Buscador *******************/ 
+.buscador{
+    top: 0;
+    margin: 0 auto;
+    width: 20rem;
+    
+}
+
+.buscador li input{
+    width: 20rem;
+    padding: 0.5rem;
+    border-radius: 5%;
+    background: rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 0px 6px 6px var(--secundario);
+
+    display: block;
+    text-align: left;
+    color: white;
+}
+
+.buscador input::placeholder {
+    color: #FFFFFF;
+}
+
+/* Buscador desplegable */
+.buscador > li{
+    float: left;
+}
+
+.buscador li ul{
+    display: block;
+    position: fixed;
+}
+
+/* Mq tablet */
+@media (max-width: 768px) {
+    .buscador{
+        margin-left: 3rem;
+        top: 0rem;
+    }
+
+    #search2 {
+        width: 10rem;
+    }
+    .buscador li{
+        width: 10rem;       
+    }
+    .reproductor_audio{
+        width:22rem;
+        left:0;
+    }
+    .reproductor {
+        left:3.3rem;
+    }
+}
+
+.no_follow {
+    text-align: center;
+    height: 7rem;
+    width: 20rem;
+}
+
+.no_follow h1 {
+    color: var(--fondoNavbar);
+    font-size: 24px;
+}
+
+/* Ventana por si hay un nombre repetido */
+.ventana_nombre_repetido {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr;
+    align-items: center;
+}
+
+/* Vantana de nombre de play_list */
+.ventana_playlist {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+}
+
+.ventana_playlist .pregunta {
+    padding: 0.5rem;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row: 1;
+}
+
+.ventana_playlist input {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row: 2;
+
+    padding: 1rem;
+    background-color: var(--principal);
+    border: none;
+    border-radius: 5%;
+    height: 3rem;
+    width: 90%;
+    margin: 0 5%;
+}
+
+.ventana_playlist #errores {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row: 4;
+}

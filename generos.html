@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Space Music</title>
+    <meta charset="UTF-8">
+    <link href="style/comun.css" rel="stylesheet" type="text/css">
+    <link href="style/baseComun.css" rel="stylesheet" type="text/css">
+    <link href="style/logSesion.css" rel="stylesheet" type="text/css">
+    <link href="style/generos.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.google.com/specimen/Open+Sans?query=open+sans" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/keania-one" rel="stylesheet">
+</head>
+<!--Cuerpo de la página-->
+<body>
+    <!--División que contiene todo el contenido de la página-->
+        <div class="generos_seleccion">
+            <div class="generos">
+                <h1>Géneros</h1>
+                <h2>-----------------------------</h2>
+                <h3>Selecciona los géneros que más te gustan:</h3>
+                <h2>-----------------------------</h2>
+            </div>
+            <div class="sesiongeneros">
+                <button class="botongenero genero_off" id = "genero_rap" onclick="añadir_genero('rap', this.getAttribute('id'))">
+                    Rap
+                </button>
+                <button class="botongenero genero_off" id = "genero_pop"  onclick="añadir_genero('pop', this.getAttribute('id'))">
+                    Pop 
+                </button>
+                <button class="botongenero genero_off" id = "genero_pop_rock"  onclick="añadir_genero('pop_rock', this.getAttribute('id'))">
+                    Pop Rock
+                </button>
+                <button class="botongenero genero_off" id = "genero_rock"  onclick="añadir_genero('rock', this.getAttribute('id'))">
+                    Rock
+                </button>
+                <button class="botongenero genero_off" id = "genero_reggaeton"  onclick="añadir_genero('reggaeton', this.getAttribute('id'))">
+                    Reggaeton
+                </button>
+                <button class="botongenero genero_off" id = "genero_trap"  onclick="añadir_genero('trap', this.getAttribute('id'))">
+                    Trap
+                </button>
+                <button class="botongenero genero_off" id = "genero_indie"  onclick="añadir_genero('indie', this.getAttribute('id'))">
+                    Indie
+                </button>
+                <button class="botongenero genero_off" id = "genero_cumbia"  onclick="añadir_genero('cumbia', this.getAttribute('id'))">
+                    Cumbia
+                </button>
+            </div>
+            <div class="enviar">
+                <button type="submit" value="submit" class="enviar__boton" id="Boton_enviar" onclick="enviar_generos()">Enviar</button>
+            </div>       
+    </div>  
+
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/log.js"></script>
+</body>
+
+</html>

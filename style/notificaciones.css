@@ -1,0 +1,74 @@
+.ventana_no_noti {  /* Centramos la ventana */
+    text-align: center;
+
+    /* Decoracion de la ventana*/
+    background-color: var(--secundario);
+    border-radius: 5%;
+    box-shadow: 0 10px 0 var(--principal);
+   
+    /* Tamaño ventana */
+    width: 15rem;
+    height: 5rem;
+
+}
+
+/* Contenedor extrerior de las notificaciones */
+.notificacion_contenedor {
+    display: grid;
+    gap: 0.5rem;
+    grid-template-columns: 5fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    background-color: var(--principal);
+    padding: 2rem;
+    border-radius: 5%;
+    box-shadow: 0 10px 0 var(--secundario);
+}
+
+/* Contenedor extrerior de las notificaciones */
+#notificaciones {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 0 20% ;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/* Mensaje de la notificacion */
+.notificacion_contenedor p {
+    grid-row-start: 1;
+    grid-row-end: 3;
+}
+
+/* Botones de confirmar o rechazar notifiacion */
+.notificacion_contenedor button {
+    padding: 0.5rem;
+}
+
+/* Mq tablet */
+@media (max-width: 768px) {
+    .notificacion_contenedor{
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+    }
+    .notificacion_contenedor p {
+        grid-column-start: 1;
+        grid-column-end: 3;
+    }
+    #notificaciones{
+        margin: 0 15% ;
+    }
+}
+
+.ventana_nombre {
+    padding: 0.5rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+}
+
+.ventana_nombre input{
+    grid-column-start: 1;
+    grid-column-end: 3;
+    width: 29rem;
+}

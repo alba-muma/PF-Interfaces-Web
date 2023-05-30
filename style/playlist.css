@@ -1,0 +1,129 @@
+/* -----------  Icono de eliminar cancion --------------- */
+/* Borrar cancion */
+#nombre_cancion{
+    height:3.5rem;
+}
+.basura-cancion{
+    position: relative;
+    top: -3.5rem;
+    background-color: var(--principal);
+    border-radius: 5%;
+    padding: 0.5rem 2.5rem;
+    width: 7rem;
+    height: 2.5rem;
+}
+.cancion{
+    height:20rem;
+}
+#no_canciones_ventana{
+    z-index:-1;
+}
+
+
+
+@media (max-width:768px){
+    .basura-cancion{
+        position: relative;
+        top: 0rem;
+        width: 6.5rem;
+    }
+    #nombre_cancion{
+        width: 15rem;
+        margin-top:0rem;
+    }
+    .cancion{
+        height:4.05rem;
+    }
+}
+
+/* Estilo del boton de compartir */
+.boton-compartir {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    align-items: center;
+    padding: 0.2rem 0.5rem;
+}
+
+.boton-compartir p {
+    color: var(--principal);
+}
+
+/* Colocacion del encabezado buscador y compartir */
+.encabezado-info {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* Selector de seguidores */
+.selecion-usuario {
+    background-color: var(--principal);
+    padding: 0.5rem 0;
+    width: 20rem;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    margin-left: 4.5rem;
+}
+
+/* Colocacion de los elementos de la ventana de compartir */
+.ventana_compartir {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+
+}
+#random_on{
+    border: 1px var(--secundario) solid;
+    background-color: var(--principal);
+    color: var(--secundario);
+}
+.boton_random{
+    height:2.2rem;
+    width:5rem;
+    transition: all 300ms;
+    font-weight: 900;
+}
+#search_cancion{
+    width:20rem;
+}
+
+@media (max-width: 768px) {
+    .ventana_compartir {
+        left: 57%;
+    }
+    #search_cancion{
+        width:15rem;
+    }
+    #buscador_playlist{
+        margin-left: 0;
+        width:15rem;
+    }
+    .list_songs li{
+        width:15rem;
+    }
+}
+
+/* Ventana de eliminar playlist */
+.ventana_eliminar2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows:  1fr 1fr;
+}
+
+
+/* Ventana de no se han añadido canciones */
+.no_canciones {
+    text-align: center;
+    padding: 1rem;
+    height: 7rem;
+    width: 20rem;
+
+}
+
+.no_canciones h3 {
+    color: var(--principal);
+    font-weight: 900;
+}
